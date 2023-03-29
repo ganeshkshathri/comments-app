@@ -1,114 +1,163 @@
-.comments-container{
-    min-height: 100vh;
-    padding:25px  30px;
-    
-}
-
-@media screen and (min-width:768px) {
-    .comments-container{
-        min-height: 100vh;
-        padding:50px  100px;
-        
-    }
-   
-}
-.top-section{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-   
-}
-.comment-img{
-    height: 140px;
-    margin-top: 80px;
-    
-}
-@media screen and (min-width:768px) {
-    .comment-img{
-        height: 280px;
-        margin-top: 0;
-    }
-}
-.para-head{
-    font-size: 14px;
-
-}
-.name-input{
-    padding: 10px 10px;
-    border-color: #dee0e3 1px solid;
-    width: 220px;
-}
-.comment-input{
-    width: 227px;
-    margin-top:8px ;
-    padding: 4px 8px;
-}
-.but{
-    color: white;
-    background-color:#0b69ff ;
-    border-radius: 4px;
-    padding: 8px 15px;
-    border: none;
-}
-.letsee{
-    border: green solid 2px;
-}
-.comment-count{
-    background-color: #0b69ff;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    margin-right: 4px;
-}
-.cmt-count{
-    display: flex;
-    
-    align-items: center;
-}
-.initial{
-    background-color: #f97316;
-    border-radius: 100px;
-    height: 38px;
-    width: 40px;
-    color: white;
-    
+.app-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.comment-up{
+    margin-top: 48px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .comments-app-container {
+      margin-top: 96px;
+    }
+  }
+  
+  .comments-container {
     display: flex;
-}
-.comment-side{
+    flex-direction: column;
+    width: 90%;
+    max-width: 550px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .comments-container {
+      width: 80%;
+      max-width: 1140px;
+    }
+  }
+  
+  .line {
+    border: 1px solid #dee0e3;
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .comments-inputs {
     display: flex;
-    align-items: center;
-}
-.for-pad{
-    margin-left: 10px;
-}
-.commenter-name{
-    font-weight: bold;
-    margin-right: 30px;
-}
-.like-delete{
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
-.time-passed{
-    color: #94a3b8;
-}
-.like-img{
-   height: 15px; 
-   margin-right: 6px;
-   margin-left: 3px;
-   
-}
-.delet-btn{
-    height: 20px;
-    align-items: center;
-}
-.comments-list{
-    list-style-type: none;
-}
+  }
+  
+  @media screen and (min-width: 768px) {
+    .comments-inputs {
+      flex-direction: row;
+    }
+  }
+  
+  .app-heading {
+    color: #1e293b;
+    font-family: 'Roboto';
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .app-heading {
+      font-size: 56px;
+      margin-top: 0px;
+      margin-bottom: 24px;
+    }
+  }
+  
+  .form-description {
+    color: #475569;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 24px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    order: 1;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .form {
+      width: 28%;
+      min-width: 300px;
+      order: 0;
+    }
+  }
+  
+  .name-input {
+    font-family: 'Roboto';
+    font-size: 16px;
+    height: 40px;
+    border: 1px solid #cbd2d9;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    outline: none;
+  }
+  
+  .comment-input {
+    font-family: 'Roboto';
+    font-size: 16px;
+    border: 1px solid #cbd2d9;
+    border-radius: 4px;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    outline: none;
+  }
+  
+  .add-button {
+    background-color: #0284c7;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Roboto';
+    border-radius: 4px;
+    border: none;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 16px;
+    margin-top: 16px;
+    min-width: 60px;
+    align-self: flex-start;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .image {
+    width: 280px;
+    height: 200px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .image {
+      width: 380px;
+      height: 300px;
+    }
+  }
+  
+  .heading {
+    color: #475569;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+  }
+  
+  .comments-count {
+    text-align: center;
+    color: #ffffff;
+    background-color: #0284c7;
+    font-size: 12px;
+    font-family: 'Roboto';
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 8px;
+    margin-right: 4px;
+  }
+  
+  .comments-list {
+    padding-left: 0;
+    margin-top: 0;
+  }

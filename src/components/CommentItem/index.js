@@ -1,42 +1,68 @@
+import {formatDistanceToNow} from 'date-fns'
+
 import './index.css'
 
-const CommentItem=(props)=>{
-    const {eachComment,onDeleteHandler,initialContainerBackgroundClassNames,onLikeHandler} = props
-    const {name,comment,id,islike} =eachComment
-   
-    const style={
-        backgroundColor:`${initialContainerBackgroundClassNames[Math.floor(Math.random()*6)]}`
-    }
-    
-    const mydeletefun=()=>{
-       onDeleteHandler(id)
-    }
+const CommentItem = props => {
+  const {commentDetails} = props
+  const {id, name, comment, isLiked, initialClassName, date} = commentDetails
+  const initial = name ? name[0].toUpperCase() : ''
+  const likeTextClassName = isLiked ? 'button active' : 'button'
+  const likeImageUrl = isLiked
+    ? 'https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
+    : 'https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png'
+  const postedTime = formatDistanceToNow(date)
 
-    const mylikefun=()=>{
-        onLikeHandler(id)
-    }
-    return(
-        <li className="comment">
-                    <div className="comment-up">
-                        <p style={style}  className="initial">{name[0]}</p>
-                        <div className="for-pad">
-                            <div className="comment-side">
-                                <p className="commenter-name">{name}</p>
-                                <p className="time-passed">2 minutes ago</p>
-                            </div>
-                            <p>{comment}</p>
-                        </div>
-                    </div>
-                    <div className="like-delete">
-                        <div className="comment-side">
-                            <img onClick={mylikefun}  className="like-img" src={islike?"https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png":"https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png"} alt="like"v/>
-                    
-                            <button>Like</button>
-                        </div>
-                        <img onClick={mydeletefun} className="delet-btn" src="https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png" alt="delete" data-testid="delete"/>
-                    </div>
-                    <hr/>
-                </li>
-    )
+  const onClickLike = () => {
+    const {toggleIsLiked} = props
+    toggleIsLiked(id)
+  }
+
+  const onDeleteComment = () => {
+    const {deleteComment} = props
+    deleteComment(id)
+  }
+
+  return (
+    <li className="comment-item">
+      <div className="comment-container">
+        <div className={initialClassName}>
+          <p className="initial">{initial}</p>
+        </div>
+        <div>
+          <div className="username-time-container">
+            <p className="username">{name}</p>
+            <p className="time">{postedTime} ago</p>
+          </div>
+          <p className="comment">{comment}</p>
+        </div>
+      </div>
+      <div className="buttons-container">
+        <div className="like-container">
+          <img src={likeImageUrl} alt="like" className="like-image" />
+          <button
+            className={likeTextClassName}
+            type="button"
+            onClick={onClickLike}
+          >
+            Like
+          </button>
+        </div>
+        <button
+          className="button"
+          type="button"
+          onClick={onDeleteComment}
+          testid="delete"
+        >
+          <img
+            className="delete"
+            src="https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png"
+            alt="delete"
+          />
+        </button>
+      </div>
+      <hr className="comment-line" />
+    </li>
+  )
 }
+
 export default CommentItem
